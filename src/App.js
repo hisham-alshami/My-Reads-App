@@ -47,21 +47,24 @@ class BooksApp extends React.Component {
     }
     return (
       <div className="app">
-        <Route
-          exact
-          path="/"
-          render={() => (
-            <MainPage books={this.state.books} moveShelf={this.moveShelf} />
-          )}
-        />
-        <Route
-          path="/search"
-          render={() => (
-            <SearchPage books={this.state.books} moveShelf={this.moveShelf} />
-          )}
-        />
+        <Routes>
+          <Route
+            exact
+            path="/"
+            element={
+              <MainPage books={this.state.books} moveShelf={this.moveShelf} />
+            }
+          />
+          <Route
+            path="/search"
+            element={
+              <SearchPage books={this.state.books} moveShelf={this.moveShelf} />
+            }
+          />
+        </Routes>
       </div>
     );
   }
 }
 export default BooksApp;
+
